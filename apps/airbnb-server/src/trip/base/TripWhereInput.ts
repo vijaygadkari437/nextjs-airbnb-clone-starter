@@ -15,6 +15,7 @@ import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { ListingWhereUniqueInput } from "../../listing/base/ListingWhereUniqueInput";
+import { JsonFilter } from "../../util/JsonFilter";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 
 @InputType()
@@ -44,14 +45,14 @@ class TripWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringFilter,
+    type: JsonFilter,
   })
-  @Type(() => StringFilter)
+  @Type(() => JsonFilter)
   @IsOptional()
-  @Field(() => StringFilter, {
+  @Field(() => JsonFilter, {
     nullable: true,
   })
-  tripInfo?: StringFilter;
+  tripInfo?: JsonFilter;
 
   @ApiProperty({
     required: false,
